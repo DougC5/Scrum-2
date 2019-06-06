@@ -27,12 +27,11 @@ function logIn() {
 
 var members = [];
 
-function member(firstName, lastName, age, standard, student) {
+function member(firstName, lastName, age, membership) {
     this.firstName = firstName;
     this.lastName = lastName;
     this.age = age;
-    this.standard = standard;
-    this.student = student;
+    this.membership = membership;
 
     console.log('Cool Man');
 }
@@ -42,14 +41,16 @@ function registerMember() {
     console.log(firstName);
     var lastName = document.getElementById('memberLastName').value;
     var age = document.getElementById('memberAge').value;
-    var standard = '';
-    var student = '';
+    var membership = $('input[name="membership"]:checked').val();
     
-    student = getStudent();
-    standard = getStandard();
+    console.log(membership);
+
+    // student = getStudent();
+    // standard = getStandard();
+
     
 
-    var newMember = new member(firstName, lastName, age, standard, student);
+    var newMember = new member(firstName, lastName, age, membership);
 
     members.push(newMember);
     

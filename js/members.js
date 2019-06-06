@@ -18,8 +18,11 @@
 
 function buildUserList(members) {
 
+    console.log('members: ', members);
+
     var fullListOfUsers = document.getElementById("userList");
     console.log(fullListOfUsers);
+    fullListOfUsers.innerHTML = '' ;
     var userTxt = '';
 
     for (i = 0; i < members.length; i++) {
@@ -37,7 +40,7 @@ function buildUserList(members) {
             <div class="card-body">
                 <h5 class="card-title">${members[i].firstName} ${members[i].lastName}</h5>
                 <h6 class="card-subtitle mb-2 text-muted">Age: ${members[i].age}</h6>
-                <p class="card-text">Membership Status <strong>${member}</strong></p>
+                <p class="card-text">Membership Status <strong>${members[i].membership}</strong></p>
                 <a href="#" class="card-link">Edit</a>
                 <a href="#" class="card-link">Check In</a>
             </div>
