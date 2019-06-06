@@ -1,29 +1,17 @@
-// dummyArray = [
-//     {
-//         firstName: 'Jim',
-//         lastName: 'Smith',
-//         age: 18,
-//         student: true,
-//         standard: false
-//     },
-//     {
-//         firstName: 'Bill',
-//         lastName: 'Jones',
-//         age: 40,
-//         student: false,
-//         standard: true
-//     }
-
-// ];
 
 function buildUserList(members) {
 
     console.log('members: ', members);
 
     var fullListOfUsers = document.getElementById("userList");
+    var numUsers = document.getElementById("numUsers");
     console.log(fullListOfUsers);
     fullListOfUsers.innerHTML = '' ;
     var userTxt = '';
+    var numberOfUsers = 
+                    `<div class="alert alert-success" role="alert">
+                    Number of Registered Users: ${members.length}
+                    </div>`;
 
     for (i = 0; i < members.length; i++) {
         var member = '';
@@ -36,19 +24,19 @@ function buildUserList(members) {
         }
 
         userTxt +=` 
-         <div class="card" style="width: 18rem;">
+         <div class="card mt-2" style="width: 18rem;">
             <div class="card-body">
                 <h5 class="card-title">${members[i].firstName} ${members[i].lastName}</h5>
                 <h6 class="card-subtitle mb-2 text-muted">Age: ${members[i].age}</h6>
+                <p class="card-text">Membership Price <strong>${members[i].price}</strong></p>
                 <p class="card-text">Membership Status <strong>${members[i].membership}</strong></p>
                 <a href="#" class="card-link">Edit</a>
                 <a href="#" class="card-link">Check In</a>
             </div>
             </div>`;
     }
+     numUsers.innerHTML = numberOfUsers;
 
-    fullListOfUsers.innerHTML += userTxt ;
+    fullListOfUsers.innerHTML = userTxt;
 
 }
-
-// buildUserList();

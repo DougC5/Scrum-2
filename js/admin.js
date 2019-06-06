@@ -1,37 +1,12 @@
-/*
-var admin = {
-    name: 'John',
-    password: '1234',
-}
-
-var supervisor = {
-    name: 'Sally',
-    password: '5678',
-}
-
-function logIn() {
-    var admin = document.getElementById('userName').value;
-    var supervisor = document.getElementById('userName').value;
-    var password = document.getElementById('password').value;
-
-    if (admin == 'John' || password == admin.password) {
-        console.log('Admin Log In Successful!');
-    } else if (admin == 'John' || password != admin.password) {
-        console.log('Password Incorrect!');
-    } else if (admin != 'John') {
-        console.log('Username Incorrect!');
-    };
-    
-}
-*/
 
 var members = [];
 
-function member(firstName, lastName, age, membership) {
+function member(firstName, lastName, age, membership, price) {
     this.firstName = firstName;
     this.lastName = lastName;
     this.age = age;
     this.membership = membership;
+    this.price = price;
 
     console.log('Cool Man');
 }
@@ -45,42 +20,34 @@ function registerMember() {
     
     console.log(membership);
 
-    // student = getStudent();
-    // standard = getStandard();
+    var price;
 
+    var membership1 = getMembership();
+    if (membership1 ==true) {
+        price = 30;
+    } else {
+        price = 50;
+    }
     
-
-    var newMember = new member(firstName, lastName, age, membership);
+    var newMember = new member(firstName, lastName, age, membership, price);
 
     members.push(newMember);
     
     buildUserList(members);
 }
 
-function getStandard() {
+function getMembership() {
+
     var membership = document.getElementsByName('membership');
-    var standard = '';
 
     for (i = 0; i < membership.length; ++i) {
         if (membership[i].checked) {
-            standard = true;
+            membership = true;
         }
+        else{
+            membership = false;
+            }
+
     }
-
-    console.log(standard);
-    return standard;
-}
-
-function getStudent() {
-    var membership = document.getElementsByName('membership');
-    var student = '';
-
-    for (i = 0; i < membership.length; ++i) {
-        if (membership[i].checked) {
-            student = true;
-        }
-    }
-
-    console.log(student);
-    return student;
-}
+    return membership;
+} 
